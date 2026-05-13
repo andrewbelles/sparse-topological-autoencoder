@@ -1,0 +1,30 @@
+dataset: fma_small_mel
+anchor_dir: representation/data
+compression_dir: compression/data
+source: anchor
+methods: [anchor, sae, topo_sae]
+neighbors: [15, 30, 50]
+homology_dims: [0, 1]
+features: [betti, entropy]
+betti_grid_size: 64
+filtration_max: 3.0
+max_homology_dim: 1
+n_perm: 64
+classifier: logistic
+device: cuda
+torch_epochs: 100
+torch_lr: 0.05
+torch_batch_size: 2048
+optuna:
+  trials: 20
+  target_metric: f1_macro
+knn_neighbors: [3, 5, 9, 15, 25]
+c_min: 1.0e-4
+c_max: 1.0
+max_iter: 10000
+tol: 1.0e-3
+include_code_dims: []
+exclude_code_dims: []
+include_target_active: []
+exclude_target_active: []
+cache_features: true

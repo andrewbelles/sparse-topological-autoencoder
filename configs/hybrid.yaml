@@ -1,0 +1,36 @@
+dataset: fma_small_mel
+anchor_dir: representation/data
+source: anchor
+methods: [sae, topo_sae]
+
+k: 30
+feature_modes: [coord, ph, coord_ph]
+features: [betti, entropy]
+homology_dims: [0, 1]
+betti_grid_size: 64
+filtration_max: 3.0
+max_homology_dim: 1
+n_perm: 64
+cache_features: true
+
+optuna:
+  trials: 20
+  target_metric: f1_macro
+c_min: 1.0e-4
+c_max: 10.0
+l1_ratio_min: 0.05
+l1_ratio_max: 0.95
+max_iter: 5000
+tol: 1.0e-3
+device: cuda
+torch_epochs: 200
+torch_lr: 0.05
+torch_batch_size: 2048
+weight_threshold: 1.0e-8
+
+include_code_dims: []
+exclude_code_dims: []
+include_target_active: []
+exclude_target_active: []
+
+output_prefix: hybrid

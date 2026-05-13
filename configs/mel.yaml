@@ -1,0 +1,8 @@
+sample_rate: 22050
+n_mels: 64
+n_fft: 2048
+hop_length: 512
+batch_size: 32
+power: 2.0
+top_db: 80.0
+device: auto

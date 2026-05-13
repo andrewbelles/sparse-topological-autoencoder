@@ -1,0 +1,15 @@
+# Copy to variation.yaml to override the code defaults.
+seed: 0
+anchor_source: anchor
+sources: [anchor, whitened_anchor]
+dataset: fma_small_mel
+splits: [training]
+genres: []
+bootstrap_replicates: 10
+tracks_per_genre: 800
+max_homology_dim: 1
+n_perm: 256
+metric: euclidean
+standardize_rows: true
+summary_metric: total_persistence
+between_genre_replicates: 12

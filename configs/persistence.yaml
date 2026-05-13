@@ -1,0 +1,28 @@
+sources:
+  - anchor
+reference_source: anchor
+basis_comparison_sources:
+  - anchor
+  - anchor
+
+genres: []
+max_tracks_per_genre: 800
+seed: 0
+
+max_homology_dim: 1
+n_perm: 256
+metric: euclidean
+
+raw_sample_rate: 22050
+raw_vector_length: 4096
+mel_time_bins: 128
+standardize_rows: true
+
+null_method: feature_shuffle
+null_replicates: 4
+residual_lifetime_quantile: 0.95
+
+projection_sources: []
+representation_data_dir: representation/data
+compression_data_dir: compression/data
+projection_split: training

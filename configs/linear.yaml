@@ -1,0 +1,26 @@
+classifier: logistic
+classifiers: []
+optuna:
+  trials: 20
+  target_metric: f1_macro
+knn_neighbors: [3, 5, 9, 15, 25]
+c_min: 1.0e-4
+c_max: 1.0
+max_iter: 10000
+tol: 1.0e-3
+device: cuda
+torch_epochs: 200
+torch_lr: 0.05
+torch_batch_size: 2048
+weight_threshold: 1.0e-8
+subset_fractions: [0.01, 0.03, 0.1, 0.3, 0.5, 1.0]
+anchor_dir: representation/data
+source: anchor
+dataset: fma_small_mel
+include_anchor: false
+include_methods: []
+exclude_methods: []
+include_runs: []
+exclude_runs: []
+include_ratios: []
+exclude_ratios: []

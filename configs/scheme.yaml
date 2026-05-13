@@ -1,0 +1,33 @@
+source: anchor
+dataset: fma_small_mel
+anchor_dir: representation/data
+compression_dir: compression/data
+stages: [compress, topology, linear]
+quiet_warnings: false
+
+schemes:
+  - family: fixed_cs
+    methods: [gaussian, srht, pca]
+    ratios: [1, 2, 3, 5, 6, 9, 12, 25]
+    dims: [2, 4, 8, 12, 16, 24, 32, 64]
+    seeds: [0, 1, 2, 3, 4]
+  - family: manifold
+    methods: [umap, laplacian_eigenmaps]
+    dims: [2, 4, 8, 12, 16, 24, 32, 64]
+    seeds: [0, 1, 2]
+
+linear:
+  classifiers: [logistic, knn]
+  include_anchor: true
+  optuna:
+    trials: 20
+    target_metric: f1_macro
+
+topology:
+  bootstrap_replicates: 15
+  tracks_per_genre: 256
+  n_perm: 256
+  compute_critical_pairs: true
+
+persistence:
+  ratios: [12, 25]

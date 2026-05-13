@@ -1,0 +1,14 @@
+# Copy to umap.yaml to override the code defaults.
+seed: 0
+anchor_source: anchor
+sources: [anchor]
+dataset: fma_small_mel
+splits: [training, validation, test]
+n_neighbors: 30
+min_dist: 0.1
+metric: cosine
+standardize_features: true
+max_points: 0
+point_size: 12
+alpha: 0.82
+figure_size: [8, 6]

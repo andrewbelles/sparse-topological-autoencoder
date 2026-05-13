@@ -1,0 +1,23 @@
+dataset: fma_small_mel
+anchor_dir: representation/data
+reference_source: anchor
+methods: [sae, topo_sae]
+seed: 7
+tracks_per_genre: 150
+bootstrap_replicates: 20
+n_perm: 64
+betti_grid_size: 64
+persistence_image_resolution: 24
+persistence_image_sigma: 0.05
+persistence_image_weight_power: 1.0
+persistence_image_max_birth: 2.5
+persistence_image_max_persistence: 2.5
+active_threshold: 1.0e-3
+linear_classifier: logistic
+device: auto
+torch_batch_size: 8192
+gpu_pairwise_distances: true
+support_plot:
+  enabled: true
+  split: training
+  normalize_by_genre: true

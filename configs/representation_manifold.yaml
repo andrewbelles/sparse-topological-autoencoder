@@ -1,0 +1,70 @@
+# Copy to representation_manifold.yaml to override the code defaults.
+seed: 0 
+dataset: fma_small_mel
+anchor_source: anchor
+
+run_training: true
+run_extraction: true
+run_evaluation: true
+
+barlow:
+  device: cuda
+  seed: 0 
+  embedding_dims: [128, 256, 512, 1024]
+  augmentations: [a1, a2, a3, a4]
+  batch_size: 128
+  num_workers: 8
+  epochs: 80
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  base_channels: 32
+  dropout: 0.0
+  projector_hidden_dim: 1024
+  projector_dim: 1024
+  barlow_lambda: 0.005
+  supcon:
+    enabled: true
+    weight: 2.5 
+    temperature: 0.07
+  augment:
+    crop_frames: 256
+    resize_scale: [0.85, 1.0]
+    mixup_alpha: 0.2
+    linear_fader_strength: 0.15
+    time_mask_width: 24
+    freq_mask_width: 8
+
+extract:
+  device: cuda
+  seed: 0 
+  checkpoint_dir: representation/checkpoints
+  checkpoints: []
+  splits: [training, validation, test]
+  crop_frames: 256
+  crops_per_track: 5
+  batch_size: 64
+  normalize_embeddings: true
+
+selection:
+  run_pattern: barlow_d*_a*
+  primary_metric: validation_logistic_f1_macro
+  secondary_metric: validation_knn_f1_macro
+  tertiary_metric: validation_ph_f1_macro
+  within_best_tolerance: 0.0
+
+baseline:
+  logistic_c: 1.0
+  logistic_max_iter: 3000
+  knn_neighbors: 15
+  purity_neighbors: 30
+
+ph:
+  enabled: true
+  k: 30
+  features: [betti, entropy]
+  homology_dims: [0, 1]
+  betti_grid_size: 64
+  filtration_max: 3.0
+  max_homology_dim: 1
+  n_perm: 64
+  cache_features: true

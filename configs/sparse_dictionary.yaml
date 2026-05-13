@@ -1,0 +1,38 @@
+source: anchor
+dataset: fma_small_mel
+methods: [topo_sae]
+code_dims: [128, 256, 512, 1024]
+target_active: [2, 4, 8, 16, 32, 64, 128]
+seeds: [0]
+device: auto
+epochs: 300
+batch_size: 2048
+learning_rate: 1.0e-4
+min_learning_rate: 1.0e-5
+weight_decay: 1.0e-6
+active_threshold: 1.0e-3
+topology_weight: 0.005
+topology_metric: persistence_image
+topology_target: raw_anchor
+topology_dims: [0, 1]
+topology_grid_size: 64
+topology_temperature: 0.05
+topology_batch_size: 196
+topology_global_batch_size: 384
+topology_eval_batches: 1
+topology_scale_mode: reference_median
+topology_scale_penalty_weight: 0.01
+persistence_image_resolution: 24
+persistence_image_sigma: 0.05
+persistence_image_weight_power: 1.0
+persistence_image_max_birth: 2.5
+persistence_image_max_persistence: 2.5
+supcon:
+  enabled: true
+  weight: 2.5
+  temperature: 0.07
+early_stopping:
+  enabled: false 
+  gl_threshold: 2.0
+  min_epochs: 10
+  patience: 5

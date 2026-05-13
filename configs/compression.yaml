@@ -1,0 +1,8 @@
+seed: 0
+source: anchor
+dataset: fma_small_mel
+methods: [gaussian, srht, pca]
+ratios: [1, 2, 3, 5, 6, 9, 12, 25]
+dims: [2, 4, 8, 12, 16, 24, 32, 64]
+convenient_dims: [2, 4, 8, 12, 16, 24, 32, 64]
+seeds: [0, 1, 2, 3, 4]

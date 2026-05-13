@@ -2,8 +2,8 @@
 # 
 # mel.py  Andrew Belles  April 10th 2026 
 # 
-# Generates Mel-Spectrogram for 64 bins at 22.05 kHz sampling rate. 
-# Log-scales and per-track min-max scales for SNN 
+# Generates Mel-Spectrogram for 64 bins at 22.05 kHz sampling rate.
+# Log-scales and per-track min-max scales for downstream representation experiments.
 # 
 
 import argparse

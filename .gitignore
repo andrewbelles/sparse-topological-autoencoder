@@ -2,18 +2,36 @@
 .env 
 .clangd 
 .venv/ 
+.cache/
 
 __pycache__/ 
-
-/configs/*.yaml
-!/configs/*.example.yaml
 
 !/preprocess/data/.gitkeep 
 /preprocess/data/* 
 !/preprocess/images/.gitkeep
 
-!/manifold/data/.gitkeep
-/manifold/data/* 
+/compression/data/* 
+!/compression/data/.gitkeep
+/compression/images/* 
+!/compression/images/.gitkeep
 
-/manifold/__pycache__/
+/representation/checkpoints/*
+!/representation/checkpoints/.gitkeep
+/representation/data/*
+!/representation/data/.gitkeep
+/representation/images/*
+!/representation/images/.gitkeep
+
+!/evaluation/data/.gitkeep
+/evaluation/data/* 
+!/evaluation/images/.gitkeep
+/evaluation/images/* 
+
+/persistence/data/*
+!/persistence/data/.gitkeep
+/persistence/images/*
+!/persistence/images/.gitkeep
+
+/compression/__pycache__/
 /preprocess/__pycache__/ 
+/persistence/__pycache__/
